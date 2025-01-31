@@ -34,8 +34,7 @@ Mapping threads to multi-dimensional data provides several benefits:
 - **Optimized Shared Memory Usage**: Threads within a block can collaborate using shared memory, reducing the need for slow global memory access.
 - **Efficient Load Balancing**: By distributing data across thread blocks, each block is responsible for a portion of the data, ensuring that all threads are utilized efficiently.
 
-
-- **Implemented colour to greyscale already on day1**
+## Implemented colour to greyscale already on day1
 ## File Path: - [RgbToGreyscale](../Day1/rgbToGreyscale.cu)
 
 
