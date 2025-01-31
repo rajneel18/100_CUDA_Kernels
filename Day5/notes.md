@@ -36,4 +36,4 @@ Mapping threads to multi-dimensional data provides several benefits:
 
 
 - **Implemented colour to greyscale already on day1**
-## File Path: `Day1/rgbToGreyscale.cu`
+## File Path: [Day1/rgbToGreyscale.cu](Day1/rgbToGreyscale.cu)
