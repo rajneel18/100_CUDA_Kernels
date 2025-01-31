@@ -36,6 +36,7 @@ Mapping threads to multi-dimensional data provides several benefits:
 
 
 - **Implemented colour to greyscale already on day1**
-## File Path: [RgbToGreyscale](100_CUDA_Kernels/Day1/rgbToGreyscale.cu)
-##: - [Day 5 Notes](Day5/notes.md)
+## File Path: - [RgbToGreyscale](../Day1/rgbToGreyscale.cu)
+
+
 
