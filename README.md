@@ -8,3 +8,6 @@
 - [Day 3 Notes](Day3/notes.md)
 
 - [Day 4 Notes](Day4/notes.md)
+
+- [Day 5 Notes](Day5/notes.md)
+
