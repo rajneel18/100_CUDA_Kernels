@@ -31,3 +31,7 @@ The algorithm
 
 Tiling is a powerful optimization technique for matrix multiplication, especially in high-performance computing. By partitioning matrices into smaller blocks, tiling improves memory usage, reduces cache misses, and allows for parallel computation. When implemented effectively on modern hardware, such as GPUs, tiling can significantly improve the performance of matrix multiplication, making it a key technique in numerical and scientific computations.
 
+
+![image](https://github.com/user-attachments/assets/2121bab7-1de5-4056-95b0-9d42836c60f4)
+
+
