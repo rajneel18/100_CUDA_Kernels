@@ -15,3 +15,5 @@
 
 - [Day 7 Notes](Day7/notes.md)
 
+- [Day 8 Notes](Day8/notes.md)
+
