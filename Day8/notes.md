@@ -23,7 +23,7 @@ Consider the matrices \( A \) of size \( n \times n \), \( B \) of size \( n \ti
 
 The algorithm 
 
-1. **Partition the matrices**: Divide each matrix into \( \frac{n}{b} \times \frac{n}{b} \) blocks.
+1. **Partition the matrices**: Divide each matrix into n/b * n/b
 2. **Block multiplication**: For each block, multiply the corresponding tiles from \( A \) and \( B \), and accumulate the results in the corresponding tile of \( C \).
 
 
