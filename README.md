@@ -17,3 +17,6 @@
 
 - [Day 8 Notes](Day8/notes.md)
 
+- [Day 9 Notes](Day9/notes.md)
+
+
