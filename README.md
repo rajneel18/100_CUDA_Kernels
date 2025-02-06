@@ -1,22 +1,24 @@
 # 100_CUDA_Kernels
 
 
-- [Day 1 Notes](Day1/notes.md)
+- [Day 1 Notes](Day01/notes.md)
 
-- [Day 2 Notes](Day2/notes.md)
+- [Day 2 Notes](Day02/notes.md)
 
-- [Day 3 Notes](Day3/notes.md)
+- [Day 3 Notes](Day03/notes.md)
 
-- [Day 4 Notes](Day4/notes.md)
+- [Day 4 Notes](Day04/notes.md)
 
-- [Day 5 Notes](Day5/notes.md)
+- [Day 5 Notes](Day05/notes.md)
 
-- [Day 6 Notes](Day6/notes.md)
+- [Day 6 Notes](Day06/notes.md)
 
-- [Day 7 Notes](Day7/notes.md)
+- [Day 7 Notes](Day07/notes.md)
 
-- [Day 8 Notes](Day8/notes.md)
+- [Day 8 Notes](Day08/notes.md)
 
-- [Day 9 Notes](Day9/notes.md)
+- [Day 9 Notes](Day09/notes.md)
+
+- [Day 10 Notes](Day10/notes.md)
 
 
