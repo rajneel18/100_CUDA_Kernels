@@ -21,4 +21,7 @@
 
 - [Day 10 Notes](Day10/notes.md)
 
+- [Day 11 Notes](Day11/notes.md)
+
+
 
