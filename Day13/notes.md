@@ -9,10 +9,10 @@ Downsampling is the process of reducing the resolution of an image by decreasing
 
 ### Mathematical Formula:  
 For a downsampled pixel at position (x,y)(x,y) in the new image:
-origX=x×(original widthnew width)
-origX=x×(new widthoriginal width​)
-origY=y×(original heightnew height)
-origY=y×(new heightoriginal height​)
+- origX=x×(original widthnew width)
+- origX=x×(new widthoriginal width​)
+- origY=y×(original heightnew height)
+- origY=y×(new heightoriginal height​)
 
 ---
 
@@ -24,8 +24,8 @@ Quantization reduces the number of possible intensity values (gray levels) in th
 2. Assign each pixel intensity to the nearest level within the reduced range.  
 
 ### Quantization Formula:  
-Quantized Pixel=(Original PixelQuantization Level)×Quantization Level
-Quantized Pixel=(Quantization LevelOriginal Pixel​)×Quantization Level
+- Quantized Pixel=(Original PixelQuantization Level)×Quantization Level
+- Quantized Pixel=(Quantization LevelOriginal Pixel​)×Quantization Level
 
 ---
 
@@ -44,7 +44,6 @@ The combined process significantly reduces the image size and complexity, making
 ## Kernel for Downsampling and Quantization
 
 Each thread operates independently and computes one output pixel. The thread’s goal is to:
-
-  *Maps* the current pixel in the output image to a corresponding pixel in the original image.
-  *Qauntize* the intensity value of the original pixel.
-  Write the quantized value to the output image array.
+- **Maps** the current pixel in the output image to a corresponding pixel in the original image.
+- **Qauntize** the intensity value of the original pixel.
+- Write the quantized value to the output image array.
