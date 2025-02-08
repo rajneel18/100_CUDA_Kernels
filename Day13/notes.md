@@ -8,14 +8,11 @@ Downsampling is the process of reducing the resolution of an image by decreasing
 - Map each pixel in the smaller image to a group of pixels in the original image and select one representative value (e.g., the top-left pixel or the average of that group).  
 
 ### Mathematical Formula:  
-For a downsampled pixel at position \((x, y)\) in the new image:  
-\[
-\text{origX} = x \times \left( \frac{\text{original width}}{\text{new width}} \right)
-\]  
-\[
-\text{origY} = y \times \left( \frac{\text{original height}}{\text{new height}} \right)
-\]  
-The pixel at \((\text{origX}, \text{origY})\) in the original image becomes the downsampled pixel value.  
+For a downsampled pixel at position (x,y)(x,y) in the new image:
+origX=x×(original widthnew width)
+origX=x×(new widthoriginal width​)
+origY=y×(original heightnew height)
+origY=y×(new heightoriginal height​)
 
 ---
 
@@ -27,15 +24,8 @@ Quantization reduces the number of possible intensity values (gray levels) in th
 2. Assign each pixel intensity to the nearest level within the reduced range.  
 
 ### Quantization Formula:  
-\[
-\text{Quantized Pixel} = \left( \frac{\text{Original Pixel}}{\text{Quantization Level}} \right) \times \text{Quantization Level}
-\]  
-
-### Example:  
-For a pixel value of 75 and a quantization level of 16:  
-\[
-\text{Quantized Pixel} = \left( \frac{75}{16} \right) \times 16 = 64
-\]  
+Quantized Pixel=(Original PixelQuantization Level)×Quantization Level
+Quantized Pixel=(Quantization LevelOriginal Pixel​)×Quantization Level
 
 ---
 
@@ -49,4 +39,12 @@ For a pixel value of 75 and a quantization level of 16:
 The combined process significantly reduces the image size and complexity, making it useful for:  
 - **Data compression**  
 - **Image analysis with limited resources**  
-- **Reducing noise and simplifying visual details for further processing**  
+- **Reducing noise and simplifying visual details for further processing**
+
+## Kernel for Downsampling and Quantization
+
+Each thread operates independently and computes one output pixel. The thread’s goal is to:
+
+  *Maps* the current pixel in the output image to a corresponding pixel in the original image.
+  *Qauntize* the intensity value of the original pixel.
+  Write the quantized value to the output image array.
