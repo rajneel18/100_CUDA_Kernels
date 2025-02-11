@@ -54,13 +54,3 @@ This process repeats until convergence.
 
 ---
 
-### ALS Loss Function:  
-The loss function in ALS is similar to the basic matrix factorization, but it splits the optimization into two parts at each iteration:
-
-1. **Update \( P \)**: Solve \( \arg \min_P \mathcal{L}(P, Q) \)  
-2. **Update \( Q \)**: Solve \( \arg \min_Q \mathcal{L}(P, Q) \)  
-
-In each step, the least-squares solution is computed for each row independently.
-
----
-
