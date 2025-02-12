@@ -1,8 +1,8 @@
-##Biases in ALS (Alternating Least Squares)
+# Biases in ALS (Alternating Least Squares)
 
 -In collaborative filtering, biases refer to systematic tendencies in rating behavior that are independent of the interaction between users and items. Bias modeling helps in achieving more accurate predictions by accounting for these tendencies.
 
-##Why Use Biases?
+# Why Use Biases?
 
 -Many collaborative filtering datasets exhibit large variations in ratings due to factors unrelated to the interaction between user and item features. For instance:
 
