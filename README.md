@@ -31,5 +31,7 @@
 
 - [Day 15 Notes](Day15/notes.md)
 
+- [Day 16 Notes](Day16/notes.md)
+
 
 
