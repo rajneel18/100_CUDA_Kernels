@@ -1,167 +1,143 @@
-#include <cuda_runtime.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <cuda_runtime.h>
 
-#define NUM_USERS 3
-#define NUM_ITEMS 3
-#define NUM_FACTORS 2  // Low-rank approximation dimension
-#define LAMBDA 0.1     // Regularization parameter
-#define MAX_ITER 100   // Maximum iterations
-#define LEARNING_RATE 0.01  // Learning rate
+#define NUM_USERS 943          
+#define NUM_ITEMS 1682         
+#define NUM_FACTORS 10         
 
-// Synthetic test matrix (user-item ratings)
-float R[NUM_USERS][NUM_ITEMS] = {
-    {5, 3, 0},
-    {4, 0, 1},
-    {1, 1, 5}
-};
+// CUDA kernel for predicting ratings
+__global__ void predict_ratings(float *P, float *Q, float *user_bias, float *item_bias, float *mean_user_ratings, float *predictions) {
+    int user = blockIdx.x * blockDim.x + threadIdx.x; // Thread ID represents a user
+    int item = blockIdx.y * blockDim.y + threadIdx.y; // Thread ID represents an item
 
-// CUDA kernel to update user factors (P) and biases (bu)
-__global__ void update_user_factors(float *R, float *P, float *Q, float *bu, float *bi, int num_users, int num_items, int num_factors, float lambda, float alpha) {
-    int user = blockIdx.x * blockDim.x + threadIdx.x;
-    if (user >= num_users) return;
+    if (user < NUM_USERS && item < NUM_ITEMS) {
+        float prediction = mean_user_ratings[user] + user_bias[user] + item_bias[item];
+        for (int k = 0; k < NUM_FACTORS; k++) {
+            prediction += P[user * NUM_FACTORS + k] * Q[item * NUM_FACTORS + k];
+        }
+        predictions[user * NUM_ITEMS + item] = prediction;
+    }
+}
 
-    for (int i = 0; i < num_items; ++i) {
-        if (R[user * num_items + i] > 0) {  // Only update for known ratings
-            float prediction = bu[user] + bi[i];
-            for (int k = 0; k < num_factors; ++k) {
-                prediction += P[user * num_factors + k] * Q[k * num_items + i];
-            }
-            float error = R[user * num_items + i] - prediction;
-
-            for (int k = 0; k < num_factors; ++k) {
-                P[user * num_factors + k] += alpha * (error * Q[k * num_items + i] - lambda * P[user * num_factors + k]);
-            }
-            bu[user] += alpha * (error - lambda * bu[user]);
+void load_data(const char *filename, float *array, int size) {
+    FILE *file = fopen(filename, "r");
+    if (!file) {
+        printf("Error opening file: %s\n", filename);
+        exit(-1);
+    }
+    for (int i = 0; i < size; i++) {
+        if (fscanf(file, "%f", &array[i]) != 1) {
+            printf("Error reading data at index %d\n", i);
+            exit(-1);
         }
     }
+    fclose(file);
 }
 
-// CUDA kernel to update item factors (Q) and biases (bi)
-__global__ void update_item_factors(float *R, float *P, float *Q, float *bu, float *bi, int num_users, int num_items, int num_factors, float lambda, float alpha) {
-    int item = blockIdx.x * blockDim.x + threadIdx.x;
-    if (item >= num_items) return;
 
-    for (int u = 0; u < num_users; ++u) {
-        if (R[u * num_items + item] > 0) {  // Only update for known ratings
-            float prediction = bu[u] + bi[item];
-            for (int k = 0; k < num_factors; ++k) {
-                prediction += P[u * num_factors + k] * Q[k * num_items + item];
-            }
-            float error = R[u * num_items + item] - prediction;
-
-            for (int k = 0; k < num_factors; ++k) {
-                Q[k * num_items + item] += alpha * (error * P[u * num_factors + k] - lambda * Q[k * num_items + item]);
-            }
-            bi[item] += alpha * (error - lambda * bi[item]);
-        }
+// Helper function to measure kernel execution time
+void checkCudaError(cudaError_t err, const char *msg) {
+    if (err != cudaSuccess) {
+        printf("CUDA Error: %s: %s\n", msg, cudaGetErrorString(err));
+        exit(-1);
     }
 }
 
-// Function to initialize matrices with small random values
-void initialize_matrix(float *matrix, int rows, int cols) {
-    for (int i = 0; i < rows * cols; ++i) {
-        matrix[i] = 0.1f * ((float)rand() / RAND_MAX);
-    }
-}
+int main() {
+    // Load mean user ratings and initialize data
+    float *mean_user_ratings = (float *)malloc(NUM_USERS * sizeof(float));
+    load_data("mean_user_ratings.txt", mean_user_ratings, NUM_USERS);
 
-// Function to calculate the predicted rating
-float predict_rating(float *P, float *Q, float *bu, float *bi, int user, int item, int num_factors) {
-    float prediction = bu[user] + bi[item];
-    for (int k = 0; k < num_factors; ++k) {
-        prediction += P[user * num_factors + k] * Q[k * NUM_ITEMS + item];
-    }
-    return prediction;
-}
+    // Simulate trained P, Q, user_bias, and item_bias
+    float *P = (float *)malloc(NUM_USERS * NUM_FACTORS * sizeof(float));
+    float *Q = (float *)malloc(NUM_ITEMS * NUM_FACTORS * sizeof(float));
+    float *user_bias = (float *)malloc(NUM_USERS * sizeof(float));
+    float *item_bias = (float *)malloc(NUM_ITEMS * sizeof(float));
+    for (int i = 0; i < NUM_USERS * NUM_FACTORS; i++) P[i] = 0.1f * ((float)rand() / RAND_MAX);
+    for (int i = 0; i < NUM_ITEMS * NUM_FACTORS; i++) Q[i] = 0.1f * ((float)rand() / RAND_MAX);
+    for (int i = 0; i < NUM_USERS; i++) user_bias[i] = 0.1f * ((float)rand() / RAND_MAX);
+    for (int i = 0; i < NUM_ITEMS; i++) item_bias[i] = 0.1f * ((float)rand() / RAND_MAX);
 
-// Function to compute RMSE
-float compute_rmse(float *R, float *P, float *Q, float *bu, float *bi, int num_users, int num_items, int num_factors) {
-    float error = 0.0f;
+    // Allocate device memory
+    float *d_P, *d_Q, *d_user_bias, *d_item_bias, *d_mean_user_ratings, *d_predictions;
+    checkCudaError(cudaMalloc((void **)&d_P, NUM_USERS * NUM_FACTORS * sizeof(float)), "Malloc d_P");
+    checkCudaError(cudaMalloc((void **)&d_Q, NUM_ITEMS * NUM_FACTORS * sizeof(float)), "Malloc d_Q");
+    checkCudaError(cudaMalloc((void **)&d_user_bias, NUM_USERS * sizeof(float)), "Malloc d_user_bias");
+    checkCudaError(cudaMalloc((void **)&d_item_bias, NUM_ITEMS * sizeof(float)), "Malloc d_item_bias");
+    checkCudaError(cudaMalloc((void **)&d_mean_user_ratings, NUM_USERS * sizeof(float)), "Malloc d_mean_user_ratings");
+    checkCudaError(cudaMalloc((void **)&d_predictions, NUM_USERS * NUM_ITEMS * sizeof(float)), "Malloc d_predictions");
+
+    // Copy data to device
+    checkCudaError(cudaMemcpy(d_P, P, NUM_USERS * NUM_FACTORS * sizeof(float), cudaMemcpyHostToDevice), "Memcpy d_P");
+    checkCudaError(cudaMemcpy(d_Q, Q, NUM_ITEMS * NUM_FACTORS * sizeof(float), cudaMemcpyHostToDevice), "Memcpy d_Q");
+    checkCudaError(cudaMemcpy(d_user_bias, user_bias, NUM_USERS * sizeof(float), cudaMemcpyHostToDevice), "Memcpy d_user_bias");
+    checkCudaError(cudaMemcpy(d_item_bias, item_bias, NUM_ITEMS * sizeof(float), cudaMemcpyHostToDevice), "Memcpy d_item_bias");
+    checkCudaError(cudaMemcpy(d_mean_user_ratings, mean_user_ratings, NUM_USERS * sizeof(float), cudaMemcpyHostToDevice), "Memcpy d_mean_user_ratings");
+
+    // Launch kernel with optimized grid and block size
+    dim3 blockSize(32, 32); // 32x32 threads per block
+    dim3 gridSize((NUM_USERS + 31) / 32, (NUM_ITEMS + 31) / 32);
+
+    // Measure kernel execution time
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+    cudaEventRecord(start);
+
+    predict_ratings<<<gridSize, blockSize>>>(d_P, d_Q, d_user_bias, d_item_bias, d_mean_user_ratings, d_predictions);
+    checkCudaError(cudaGetLastError(), "Kernel launch");
+
+    cudaEventRecord(stop);
+    cudaEventSynchronize(stop);
+    float milliseconds = 0;
+    cudaEventElapsedTime(&milliseconds, start, stop);
+    printf("Kernel execution time: %.4f ms\n", milliseconds);
+
+    // Copy predictions back to host
+    float *predictions = (float *)malloc(NUM_USERS * NUM_ITEMS * sizeof(float));
+    checkCudaError(cudaMemcpy(predictions, d_predictions, NUM_USERS * NUM_ITEMS * sizeof(float), cudaMemcpyDeviceToHost), "Memcpy predictions");
+
+    // Calculate RMSE
+    FILE *matrix_file = fopen("normalized_matrix.txt", "r");
+    if (!matrix_file) {
+        printf("Error loading normalized matrix.\n");
+        return -1;
+    }
+
+    float rmse = 0;
     int count = 0;
-    for (int u = 0; u < num_users; ++u) {
-        for (int i = 0; i < num_items; ++i) {
-            if (R[u * num_items + i] > 0) {
-                float prediction = predict_rating(P, Q, bu, bi, u, i, num_factors);
-                error += pow(R[u * num_items + i] - prediction, 2);
+    for (int user = 0; user < NUM_USERS; user++) {
+        for (int item = 0; item < NUM_ITEMS; item++) {
+            float actual;
+            fscanf(matrix_file, "%f", &actual);
+            if (actual != 0) {  // Only evaluate where actual ratings exist
+                float error = actual - predictions[user * NUM_ITEMS + item];
+                rmse += error * error;
                 count++;
             }
         }
     }
-    return sqrt(error / count);
-}
-
-// Host function to run ALS
-void runALS(float *R, int num_users, int num_items, int num_factors) {
-    float *P, *Q, *bu, *bi, *d_R;
-    int size_R = num_users * num_items * sizeof(float);
-    int size_P = num_users * num_factors * sizeof(float);
-    int size_Q = num_factors * num_items * sizeof(float);
-    int size_bu = num_users * sizeof(float);
-    int size_bi = num_items * sizeof(float);
-
-    // Allocate host memory
-    float *h_P = (float *)malloc(size_P);
-    float *h_Q = (float *)malloc(size_Q);
-    float *h_bu = (float *)malloc(size_bu);
-    float *h_bi = (float *)malloc(size_bi);
-
-    // Initialize P, Q, bu, and bi with random values
-    initialize_matrix(h_P, num_users, num_factors);
-    initialize_matrix(h_Q, num_factors, num_items);
-    for (int i = 0; i < num_users; ++i) h_bu[i] = 0.0f;
-    for (int i = 0; i < num_items; ++i) h_bi[i] = 0.0f;
-
-    // Allocate device memory
-    cudaMalloc((void **)&d_R, size_R);
-    cudaMalloc((void **)&P, size_P);
-    cudaMalloc((void **)&Q, size_Q);
-    cudaMalloc((void **)&bu, size_bu);
-    cudaMalloc((void **)&bi, size_bi);
-
-    // Copy data to device
-    cudaMemcpy(d_R, R, size_R, cudaMemcpyHostToDevice);
-    cudaMemcpy(P, h_P, size_P, cudaMemcpyHostToDevice);
-    cudaMemcpy(Q, h_Q, size_Q, cudaMemcpyHostToDevice);
-    cudaMemcpy(bu, h_bu, size_bu, cudaMemcpyHostToDevice);
-    cudaMemcpy(bi, h_bi, size_bi, cudaMemcpyHostToDevice);
-
-    int blockSize = 256;
-    int gridSizeUsers = (num_users + blockSize - 1) / blockSize;
-    int gridSizeItems = (num_items + blockSize - 1) / blockSize;
-
-    for (int iter = 0; iter < MAX_ITER; ++iter) {
-        update_user_factors<<<gridSizeUsers, blockSize>>>(d_R, P, Q, bu, bi, num_users, num_items, num_factors, LAMBDA, LEARNING_RATE);
-        cudaDeviceSynchronize();
-        update_item_factors<<<gridSizeItems, blockSize>>>(d_R, P, Q, bu, bi, num_users, num_items, num_factors, LAMBDA, LEARNING_RATE);
-        cudaDeviceSynchronize();
-    }
-
-    // Copy results back to host
-    cudaMemcpy(h_P, P, size_P, cudaMemcpyDeviceToHost);
-    cudaMemcpy(h_Q, Q, size_Q, cudaMemcpyDeviceToHost);
-    cudaMemcpy(h_bu, bu, size_bu, cudaMemcpyDeviceToHost);
-    cudaMemcpy(h_bi, bi, size_bi, cudaMemcpyDeviceToHost);
-
-    // Compute RMSE
-    float rmse = compute_rmse(&R[0][0], h_P, h_Q, h_bu, h_bi, num_users, num_items, num_factors);
+    fclose(matrix_file);
+    rmse = sqrt(rmse / count);
     printf("RMSE: %.4f\n", rmse);
 
     // Free device memory
-    cudaFree(d_R);
-    cudaFree(P);
-    cudaFree(Q);
-    cudaFree(bu);
-    cudaFree(bi);
+    cudaFree(d_P);
+    cudaFree(d_Q);
+    cudaFree(d_user_bias);
+    cudaFree(d_item_bias);
+    cudaFree(d_mean_user_ratings);
+    cudaFree(d_predictions);
 
     // Free host memory
-    free(h_P);
-    free(h_Q);
-    free(h_bu)
-}
+    free(mean_user_ratings);
+    free(P);
+    free(Q);
+    free(user_bias);
+    free(item_bias);
+    free(predictions);
 
-int main() {
-    printf("Running ALS with Biases on CUDA with a synthetic test matrix...\n");
-    runALS(&R[0][0], NUM_USERS, NUM_ITEMS, NUM_FACTORS);
     return 0;
 }
