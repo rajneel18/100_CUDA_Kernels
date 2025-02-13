@@ -157,8 +157,7 @@ void runALS(float *R, int num_users, int num_items, int num_factors) {
     // Free host memory
     free(h_P);
     free(h_Q);
-    free(h_bu);
-    free(h_bi);
+    free(h_bu)
 }
 
 int main() {
