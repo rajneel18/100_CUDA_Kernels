@@ -20,42 +20,36 @@ __global__ void FHT_kernel(float* input, float* output, int N) {
 void computeFHT(float* h_input, float* h_output, int N) {
     float *d_input, *d_output;
     
-    // Allocate device memory
     cudaMalloc(&d_input, N * sizeof(float));
     cudaMalloc(&d_output, N * sizeof(float));
     
-    // Copy input data to device
     cudaMemcpy(d_input, h_input, N * sizeof(float), cudaMemcpyHostToDevice);
     
-    // Calculate grid and block dimensions
     int blockSize = 256;
     int numBlocks = (N + blockSize - 1) / blockSize;
     
-    // Launch kernel
     FHT_kernel<<<numBlocks, blockSize>>>(d_input, d_output, N);
     
-    // Copy results back to host
     cudaMemcpy(h_output, d_output, N * sizeof(float), cudaMemcpyDeviceToHost);
     
-    // Free device memory
     cudaFree(d_input);
     cudaFree(d_output);
 }
 
 int main() {
-    const int N = 1024; // Size of input array
+    const int N = 1024; 
     float* h_input = new float[N];
     float* h_output = new float[N];
     
     // Initialize input array
     for (int i = 0; i < N; i++) {
-        h_input[i] = sinf(2.0f * PI * i / N); // Example input signal
+        h_input[i] = sinf(2.0f * PI * i / N); 
     }
     
     // Compute FHT
     computeFHT(h_input, h_output, N);
     
-    // Print first few results
+
     printf("First 10 FHT coefficients:\n");
     for (int i = 0; i < 10; i++) {
         printf("%f ", h_output[i]);
