@@ -33,5 +33,14 @@
 
 - [Day 16 Notes](Day16/notes.md)
 
+- [Day 17 Notes](Day16/notes.md)
+
+- [Day 18 Notes](Day16/notes.md)
+  
+- [Day 19 Notes](Day16/notes.md)
+
+- [Day 20 Notes](Day16/notes.md)
+
+
 
 
