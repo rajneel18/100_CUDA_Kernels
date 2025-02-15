@@ -33,13 +33,13 @@
 
 - [Day 16 Notes](Day16/notes.md)
 
-- [Day 17 Notes](Day16/notes.md)
+- [Day 17 Notes](Day17/notes.md)
 
-- [Day 18 Notes](Day16/notes.md)
+- [Day 18 Notes](Day18/notes.md)
   
-- [Day 19 Notes](Day16/notes.md)
+- [Day 19 Notes](Day19/notes.md)
 
-- [Day 20 Notes](Day16/notes.md)
+- [Day 20 Notes](Day20/notes.md)
 
 
 
