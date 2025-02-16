@@ -41,6 +41,7 @@
 
 - [Day 20 Notes](Day20/notes.md)
 
+- [Day 21 Notes](Day21/notes.md)
 
 
 
