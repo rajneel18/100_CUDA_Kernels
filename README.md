@@ -43,7 +43,7 @@
 
 - [Day 21 Notes](Day21/notes.md)
 
-- [Day 22 Notes](Day22/notes.m
+- [Day 22 Notes](Day22/notes.md)
 
 
 
