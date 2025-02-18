@@ -45,5 +45,7 @@
 
 - [Day 22 Notes](Day22/notes.md)
 
+- [Day 23 Notes](Day23/notes.md)
+
 
 
