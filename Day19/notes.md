@@ -1,4 +1,4 @@
-## Notes on Parallel Merge Sort with CUDA
+## Parallel Merge Sort 
 
 This document describes the theoretical concepts behind the provided CUDA code, which implements a parallel merge sort algorithm.
 
