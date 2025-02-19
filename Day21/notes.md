@@ -1,4 +1,4 @@
-## Notes on Image Unrolling with CUDA
+## Image Unrolling with CUDA
 
 This document describes the theoretical concepts behind the provided CUDA code, which implements image unrolling, a common preprocessing step in convolutional neural networks (CNNs).
 
