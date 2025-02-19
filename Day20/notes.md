@@ -1,6 +1,5 @@
 ## Fast Hartley Transform (FHT) with CUDA
 
-This document describes the theoretical concepts behind the provided CUDA code, which implements the Fast Hartley Transform (FHT).
 
 ### Core Concepts
 
