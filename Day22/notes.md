@@ -1,7 +1,5 @@
 ## Convolution Forward Pass with CUDA
 
-This document describes the theoretical concepts behind the provided CUDA code, which implements the forward pass of a convolution operation, a fundamental building block of Convolutional Neural Networks (CNNs).
-
 ### Core Concepts
 
 *   **Convolutional Neural Networks (CNNs):** A class of neural networks specialized for processing data with a grid-like topology, such as images. CNNs use convolutional layers, which involve sliding a kernel over the input image to detect features.
@@ -45,5 +43,3 @@ This document describes the theoretical concepts behind the provided CUDA code, 
 *   **Parallelism:** The CUDA implementation leverages the GPU's parallel processing capabilities for both the unrolling and convolution steps.
 *   **Efficiency:** The combination of unrolling and matrix multiplication (performed implicitly in the convolution kernel) enables efficient convolution.
 *   **Memory Management:** Careful memory management is crucial for CUDA programming. The code allocates and frees memory on both the host and device.
-
-This explanation provides a theoretical understanding of the convolution forward pass and its CUDA implementation. It highlights the purpose of each step, the parallel computation on the GPU, and the overall algorithm flow.
