@@ -1,7 +1,5 @@
 ## Parallel Merge Sort 
 
-This document describes the theoretical concepts behind the provided CUDA code, which implements a parallel merge sort algorithm.
-
 ### Core Concepts
 
 *   **Merge Sort:** A divide-and-conquer sorting algorithm. It recursively divides the input array into smaller subarrays until each subarray contains only one element (which is considered sorted). Then, it repeatedly merges the sorted subarrays back together until a single sorted array is obtained.
@@ -34,4 +32,3 @@ This document describes the theoretical concepts behind the provided CUDA code, 
 *   **Block-level Parallelism:** The use of multiple blocks allows for parallel merging of independent subarrays.
 *   **Thread-level Parallelism (within a block):**  While the current `merge` function is not fully utilizing shared memory and instead relies on thread-local allocation, the merging of smaller subarrays *could* be further parallelized within a block using shared memory for efficient data sharing and synchronization.  The `__syncthreads()` call suggests the intent of block-level cooperation, even if it's not fully optimized with shared memory.
 
-This explanation covers the theoretical aspects of the provided code. It is important to note that performance tuning for CUDA kernels, such as optimizing shared memory usage and thread/block configuration, is crucial for realizing the full potential of parallel merge sort.
