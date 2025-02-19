@@ -1,6 +1,5 @@
-## Notes on Recommendation System Rating Prediction with CUDA
+## Recommendation System Rating Prediction with CUDA
 
-This document outlines the theoretical concepts behind the provided code, which implements a rating prediction system using CUDA.  The system leverages a collaborative filtering approach based on matrix factorization.
 
 ### Core Concepts
 
@@ -31,4 +30,3 @@ This document outlines the theoretical concepts behind the provided code, which 
 *   **Data Loading:** The `load_data` function reads data from a file into a float array.
 *   **File Formats:** The code assumes specific file formats for the mean user ratings and the normalized matrix of actual ratings.
 
-This breakdown provides a theoretical understanding of the concepts and techniques employed in the provided code snippet. It focuses on the "why" and "what" rather than the "how" (code implementation).
