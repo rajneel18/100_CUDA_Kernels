@@ -1,6 +1,5 @@
 ## Image Unrolling with CUDA
 
-This document describes the theoretical concepts behind the provided CUDA code, which implements image unrolling, a common preprocessing step in convolutional neural networks (CNNs).
 
 ### Core Concepts
 
@@ -40,4 +39,3 @@ The unrolling process transforms the input image and kernel into a larger matrix
 *   **Memory Overhead:** Unrolling increases the memory required to store the data, as the unrolled representation is larger than the original image.
 *   **Parallelism:** The CUDA implementation leverages the GPU's parallel processing capabilities to speed up the unrolling process.
 
-This explanation provides a theoretical understanding of image unrolling and its CUDA implementation. It emphasizes the purpose of unrolling, the parallel computation on the GPU, and the overall algorithm flow.
