@@ -1,4 +1,4 @@
-## Notes on Convolution Forward Pass with CUDA
+## Convolution Forward Pass with CUDA
 
 This document describes the theoretical concepts behind the provided CUDA code, which implements the forward pass of a convolution operation, a fundamental building block of Convolutional Neural Networks (CNNs).
 
