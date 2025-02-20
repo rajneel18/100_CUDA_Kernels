@@ -47,5 +47,11 @@
 
 - [Day 23 Notes](Day23/notes.md)
 
+- [Day 24 Notes](Day24/notes.md)
+
+- [Day 25 Notes](Day25/notes.md)
+
+
+
 
 
