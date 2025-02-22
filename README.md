@@ -53,6 +53,9 @@
 
 - [Day 26 Notes](Day26/notes.md)
 
+- [Day 27 Notes](Day27/notes.md)
+
+
 
 
 
