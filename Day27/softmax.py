@@ -4,7 +4,7 @@ import tensorflow as tf
 import timeit
 
 # Generate a large input array
-N = 10000
+N = 100
 x = np.random.rand(N).astype(np.float32)
 
 # NumPy Softmax

@@ -55,15 +55,15 @@ void softmaxHost(float* input, float* output, int N) {
 }
 
 int main() {
-    int N = 5;
+    int N = 100;
     float h_input[5] = {1.0, 2.0, 3.0, 4.0, 5.0};
     float h_output[5];
 
     softmaxHost(h_input, h_output, N);
 
-    printf("Softmax Output:\n");
-    for (int i = 0; i < N; i++) {
-        printf("%f\n", h_output[i]);
-    }
+    // printf("Softmax Output:\n");
+    // for (int i = 0; i < N; i++) {
+    //     printf("%f\n", h_output[i]);
+    // }
     return 0;
 }
