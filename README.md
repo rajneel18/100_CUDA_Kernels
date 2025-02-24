@@ -57,6 +57,9 @@
 
 - [Day 28 Notes](Day28/notes.md)
 
+- [Day 29 Notes](Day29/notes.md)
+
+
 
 
 
