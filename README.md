@@ -67,6 +67,10 @@
 
 - [Day 33 Notes](Day33/notes.md)
 
+- [Day 34 Notes](Day34/notes.md)
+
+- [Day 35 Notes](Day35/notes.md)
+
 
 
 
