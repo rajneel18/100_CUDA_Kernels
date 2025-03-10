@@ -85,6 +85,8 @@
 
 - [Day 36 Notes](Day36/notes.md)
 
+- [Day 36 Notes](Day36/notes.md)
+
 
 
 
