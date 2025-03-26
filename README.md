@@ -116,3 +116,6 @@
 - [Day 57 Notes](Day57/notes.md)
 
 - [Day 58 Notes](Day58/notes.md)
+
+- [Day 58 Notes](Day58/notes.md)
+
