@@ -72,66 +72,47 @@
 - [Day 35 Notes](Day35/notes.md)
 
 - [Day 36 Notes](Day36/notes.md)
+  
+- [Day 37 Notes](Day37/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 38 Notes](Day38/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 39 Notes](Day39/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 40 Notes](Day40/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 41 Notes](Day41/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 42 Notes](Day42/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 43 Notes](Day43/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 44 Notes](Day44/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 45 Notes](Day45/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 46 Notes](Day46/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 47 Notes](Day47/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 48 Notes](Day48/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 49 Notes](Day49/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 50 Notes](Day50/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 51 Notes](Day51/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 52 Notes](Day52/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 53 Notes](Day53/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 54 Notes](Day54/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 55 Notes](Day55/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 56 Notes](Day56/notes.md)
 
-- [Day 36 Notes](Day36/notes.md)
+- [Day 57 Notes](Day57/notes.md)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [Day 58 Notes](Day58/notes.md)
