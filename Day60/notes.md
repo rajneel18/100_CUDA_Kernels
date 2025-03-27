@@ -10,10 +10,7 @@ This approach implements a GPU-accelerated symbolic differentiation engine for s
 
 ## CUDA Algorithm
 1. Store polynomial terms: coefficients and exponents.
-2. Execute a parallel kernel to compute derivatives using the formula:
-   \[
-   \frac{d}{dx} (a x^n) = a \cdot n \cdot x^{n-1}
-   \]
+2. Execute a parallel kernel to compute derivatives 
 3. Copy results back to the CPU and simplify the expressions.
 
 ## Future Enhancements
