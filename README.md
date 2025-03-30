@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-# 100 CUDA Kernels
-
-A 100-day journey exploring CUDA programming and GPU computing concepts.
+# CUDA Kernels
 
 | Day | Topic |
 |-----|-------|
