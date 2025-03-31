@@ -12,4 +12,4 @@ In this implementation, we use CUDA to accelerate the simulation of an SNN. We w
 1. **Initialize Neurons:** Define membrane potentials, thresholds, and refractory periods.
 2. **Update Neuron States:** Compute new potentials and check for spiking neurons.
 3. **Propagate Spikes:** Use CUDA to efficiently distribute spike signals.
-4. **Update Synaptic Weights:** Apply learning rules (STDP - Spike-Timing Dependent Plasticity).
+4. **Update Synaptic Weights:** Apply learning rules (STDP - Spike-Timing Dependent Plasticity.
