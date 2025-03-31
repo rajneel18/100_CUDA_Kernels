@@ -65,7 +65,7 @@
 | 61 | [Evolutionary Algorithm](Day61/notes.md) |
 | 62 | [Self-Organizing Maps](Day62/notes.md) |
 | 63 | [Spiking Neural Network](Day63/notes.md) |
-| 63 | [Spiking Neural Network](Day63/notes.md) |
+| 63 | [Hyper Network](Day64/notes.md) |
 
 
 
