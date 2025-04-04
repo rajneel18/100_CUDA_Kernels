@@ -68,7 +68,9 @@
 | 64 | [Hyper Network](Day64/notes.md) |
 | 65 | [Wasserstein Distance ](Day65/notes.md) |
 | 66 | [LoRA ](Day65/notes.md) |
-| 67 | [Hebbian leearning rule ](Day65/notes.md) |
+| 67 | [Hebbian leearning rule ](Day67/notes.md) |
+| 68 | [Leaky integrate and fire ](Day68/notes.md) |
+
 
 
 
