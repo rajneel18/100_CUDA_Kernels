@@ -71,6 +71,8 @@
 | 67 | [Hebbian leearning rule ](Day67/notes.md) |
 | 68 | [Leaky integrate and fire ](Day68/notes.md) |
 | 69 | [Vector Similarity  ](Day69/notes.md) |
+| 69 | [Vector Similarity  ](Day69/notes.md) |
+
 
 
 
