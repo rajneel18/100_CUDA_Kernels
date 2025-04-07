@@ -72,6 +72,8 @@
 | 68 | [Leaky integrate and fire ](Day68/notes.md) |
 | 69 | [Vector Similarity  ](Day69/notes.md) |
 | 70 | [Auo regrressive forecast ](Day70/notes.md) |
+| 70 | [Auo regrressive forecast ](Day70/notes.md) |
+
 
 
 
