@@ -73,7 +73,8 @@
 | 69 | [Vector Similarity  ](Day69/notes.md) |
 | 70 | [Auo regrressive forecast ](Day70/notes.md) |
 | 71 | [Image binarization ](Day71/notes.md)
-l71 | [Image binarization ](Day71/notes.md)
+| 72 | [tokenizer ](Day72/notes.md)
+
 
 
 
