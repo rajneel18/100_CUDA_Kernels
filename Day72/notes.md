@@ -16,7 +16,7 @@ Accelerate the token-to-ID mapping process in natural language preprocessing usi
 
 ---
 
-## 🛠CUDA Features Used
+## CUDA Features Used
 
 - **Constant Memory**: For fast access to vocabulary words and IDs.
 - **Thread Parallelism**: Each thread handles one token-to-ID conversion.
