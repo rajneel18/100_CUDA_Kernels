@@ -74,6 +74,8 @@
 | 70 | [Auo regrressive forecast ](Day70/notes.md) |
 | 71 | [Image binarization ](Day71/notes.md)
 | 72 | [tokenizer ](Day72/notes.md)
+| 73 | [Attention score matrix ](Day73/notes.md)
+
 
 
 
