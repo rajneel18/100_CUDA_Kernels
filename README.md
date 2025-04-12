@@ -76,8 +76,8 @@
 | 72 | [tokenizer ](Day72/notes.md)
 | 73 | [Attention score matrix ](Day73/notes.md)
 | 74 | [PCA ](Day74/notes.md)
-| 74 | [PCA ](Day74/notes.md)
-| 74 | [PCA ](Day74/notes.md)
+| 74 | [Embeeding lookup](Day75/notes.md)
+| 74 | [cosine similarity ](Day76/notes.md)
 
 
 
