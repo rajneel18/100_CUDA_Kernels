@@ -78,7 +78,7 @@
 | 74 | [PCA ](Day74/notes.md)
 | 74 | [Embeeding lookup](Day75/notes.md)
 | 74 | [cosine similarity ](Day76/notes.md)
-
+| 74 | [cosine similarity ](Day76/notes.md)
 
 
 
