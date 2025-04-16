@@ -81,6 +81,9 @@
 | 77 | [Hierarchical Navigable Small World ](Day77/notes.md)
 | 78 | [Sparse attention](Day78/notes.md)
 | 79 | [Residual connectio](Day79/notes.md)
+| 79 | [Residual connectio](Day79/notes.md)
+
+
 
 
 
