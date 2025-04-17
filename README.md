@@ -80,9 +80,9 @@
 | 76 | [cosine similarity ](Day76/notes.md)
 | 77 | [Hierarchical Navigable Small World ](Day77/notes.md)
 | 78 | [Sparse attention](Day78/notes.md)
-| 79 | [Residual connectio](Day79/notes.md)
-| 79 | [Residual connectio](Day79/notes.md)
-| 79 | [Residual connectio](Day79/notes.md)
+| 79 | [Residual connection](Day79/notes.md)
+| 80 | [flash attention forward ](Day80/notes.md)
+| 81 | [flash attention backward](Day81/notes.md)
 
 
 
