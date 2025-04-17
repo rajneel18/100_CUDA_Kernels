@@ -82,6 +82,8 @@
 | 78 | [Sparse attention](Day78/notes.md)
 | 79 | [Residual connectio](Day79/notes.md)
 | 79 | [Residual connectio](Day79/notes.md)
+| 79 | [Residual connectio](Day79/notes.md)
+
 
 
 
