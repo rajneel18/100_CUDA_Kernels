@@ -1,4 +1,4 @@
-# HNSW-KNN in CUDA
+# HNSW-KNN in CUDA(Hierarchical Navigable Small World)
 
 ## Overview
 
