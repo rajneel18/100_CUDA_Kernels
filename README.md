@@ -83,6 +83,8 @@
 | 79 | [Residual connection](Day79/notes.md)
 | 80 | [flash attention forward ](Day80/notes.md)
 | 81 | [flash attention backward](Day81/notes.md)
+| 82 | [Attention linear biases](Day82/notes.md)
+
 
 
 
