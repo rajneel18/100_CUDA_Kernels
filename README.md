@@ -85,6 +85,8 @@
 | 81 | [flash attention backward](Day81/notes.md)
 | 82 | [Attention linear biases](Day82/notes.md)
  82 | [Attention linear biases](Day82/notes.md)
+| 82 | [Attention linear biases](Day82/notes.md)
+
 
 
 
