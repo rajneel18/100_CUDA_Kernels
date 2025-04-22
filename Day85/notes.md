@@ -14,7 +14,7 @@
 
 ---
 
-## ✍Step-by-Step Process
+## Step-by-Step Process
 
 ### 1. Cosine Similarity Computation
 
