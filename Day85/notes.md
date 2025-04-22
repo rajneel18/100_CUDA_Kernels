@@ -18,17 +18,7 @@
 
 ### 1. Cosine Similarity Computation
 
-Given two token embeddings:
 
-Let  
-- \( \vec{a}, \vec{b} \in \mathbb{R}^d \) be embeddings of two tokens.
-
-Then,  
-- Cosine similarity is:
-
-\[
-\text{sim}(\vec{a}, \vec{b}) = \frac{\vec{a} \cdot \vec{b}}{\|\vec{a}\| \cdot \|\vec{b}\|}
-\]
 
 ### 2. Merging Tokens
 
