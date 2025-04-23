@@ -84,10 +84,10 @@
 | 80 | [flash attention forward ](Day80/notes.md)
 | 81 | [flash attention backward](Day81/notes.md)
 | 82 | [Attention linear biases](Day82/notes.md)
-| 83 | [Attention linear biases](Day82/notes.md)
-| 84 | [Attention linear biases](Day82/notes.md)
-| 85 | [Attention linear biases](Day82/notes.md)
-| 84 | [Attention linear biases](Day82/notes.md)
+| 83 | [GQA](Day83/notes.md)
+| 84 | [LLM Quant](Day84/notes.md)
+| 85 | [Gradient Checkpoint](Day85/notes.md)
+| 86 | [Token Merging](Day86/notes.md)
 
 
 
