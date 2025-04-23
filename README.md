@@ -87,6 +87,7 @@
 | 83 | [Attention linear biases](Day82/notes.md)
 | 84 | [Attention linear biases](Day82/notes.md)
 | 85 | [Attention linear biases](Day82/notes.md)
+| 84 | [Attention linear biases](Day82/notes.md)
 
 
 
