@@ -88,7 +88,8 @@
 | 84 | [LLM Quant](Day84/notes.md)
 | 85 | [Gradient Checkpoint](Day85/notes.md)
 | 86 | [Token Merging](Day86/notes.md)
-
+| 87 | [Token Merging](Day87/notes.md)
+| 87 | [Token Merging](Day87/notes.md)
 
 
 
