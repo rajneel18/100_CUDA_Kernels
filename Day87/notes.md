@@ -1,13 +1,9 @@
 
 ## Definition
 
-**Total Variation Distance** is a measure of how different two probability distributions \( P \) and \( Q \) are.
+**Total Variation Distance** is a measure of how different two probability distributions 
 
-The mathematical formula is:
-$
-\[
-\text{TV}(P, Q) = \frac{1}{2} \sum_i |P_i - Q_i|
-\]
+
 
 This value ranges from 0 (identical distributions) to 1 (completely disjoint distributions).
 
@@ -23,6 +19,5 @@ This value ranges from 0 (identical distributions) to 1 (completely disjoint dis
 
 ##  CUDA Implementation Overview
 
-1. Launch a CUDA kernel to calculate \( |P_i - Q_i| \times \frac{1}{2} \) for each index \( i \).
-2. Use **shared memory reduction** to sum the values within each block.
-3. Use **`atomicAdd`** to accumulate partial sums into the final result.
+1. Use **shared memory reduction** to sum the values within each block.
+2. Use **`atomicAdd`** to accumulate partial sums into the final result.
