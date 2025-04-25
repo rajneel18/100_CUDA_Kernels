@@ -88,8 +88,10 @@
 | 84 | [LLM Quant](Day84/notes.md)
 | 85 | [Gradient Checkpoint](Day85/notes.md)
 | 86 | [Token Merging](Day86/notes.md)
-| 87 | [Token Merging](Day87/notes.md)
-| 87 | [Token Merging](Day87/notes.md)
+| 87 | [TV Distance](Day87/notes.md)
+| 88 | [JS Divergence](Day88/notes.md)
+| 89 | [MROPE](Day89/notes.md)
+
 
 
 
