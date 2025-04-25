@@ -4,7 +4,7 @@
 **Total Variation Distance** is a measure of how different two probability distributions \( P \) and \( Q \) are.
 
 The mathematical formula is:
-
+$
 \[
 \text{TV}(P, Q) = \frac{1}{2} \sum_i |P_i - Q_i|
 \]
