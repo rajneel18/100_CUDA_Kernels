@@ -91,6 +91,8 @@
 | 87 | [TV Distance](Day87/notes.md)
 | 88 | [JS Divergence](Day88/notes.md)
 | 89 | [MROPE](Day89/notes.md)
+| 90 | [Fused Linear Softmax](Day90/notes.md)
+
 
 
 
