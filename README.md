@@ -93,6 +93,7 @@
 | 89 | [MROPE](Day89/notes.md)
 | 90 | [Fused Linear Softmax](Day90/notes.md)
 | 90 | [Fused Linear Softmax](Day90/notes.md)
+| 90 | [Fused Linear Softmax](Day90/notes.md)
 
 
 
