@@ -94,6 +94,8 @@
 | 90 | [Fused Linear Softmax](Day90/notes.md)
 | 91 | [Contrastive loss ](Day91/notes.md)
 | 92 | [Triplet loss ](Day92/notes.md)
+| 93 | [upper triangular matmul](Day93/notes.md)
+
 
 
 
