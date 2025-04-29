@@ -11,11 +11,7 @@ Given:
 - Negative vector \( n \)
 - Margin \( \alpha \)
 
-The loss for each triplet is:
 
-\[
-L = \max(0, ||a - p||^2 - ||a - n||^2 + \alpha)
-\]
 
 Where:
 - \( ||a - p||^2 \): Squared distance between anchor and positive
