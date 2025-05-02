@@ -96,6 +96,8 @@
 | 92 | [Triplet loss ](Day92/notes.md)
 | 93 | [upper triangular matmul](Day93/notes.md)
 | 94 | [huber loss](Day94/notes.md)
+| 94 | [huber loss](Day94/notes.md)
+
 
 
 
