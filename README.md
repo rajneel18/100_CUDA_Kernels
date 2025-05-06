@@ -99,8 +99,10 @@
 | 95 | [matmul_swish](Day95/notes.md)
 | 96 | [softplus](Day96/notes.md)
 | 97 | [negative cosine similarity](Day97/notes.md)
-| 97 | [negative cosine similarity](Day97/notes.md)
-| 97 | [negative cosine similarity](Day97/notes.md)
+| 98 | [Hard_sigmoid](Day99/notes.md)
+| 99 | [hinge_loss](Day99/notes.md)
+| 100 | [elu_activation](Day100/notes.md)
+
 
 
 
