@@ -100,6 +100,7 @@
 | 96 | [softplus](Day96/notes.md)
 | 97 | [negative cosine similarity](Day97/notes.md)
 | 97 | [negative cosine similarity](Day97/notes.md)
+| 97 | [negative cosine similarity](Day97/notes.md)
 
 
 
